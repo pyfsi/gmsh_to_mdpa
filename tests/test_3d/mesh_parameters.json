@@ -1,0 +1,28 @@
+{
+  "precision": 10,
+  "sub_model_parts": [
+    {
+      "physical_group_name": "hex_elems",
+      "element_name": "SmallDisplacementElement3D8N",
+      "property_id": 0,
+      "sub_model_part_name": "Parts_box"
+    },
+    {
+      "physical_group_name": "side_faces",
+      "property_id": 0,
+      "sub_model_part_name": "DISPLACEMENT_side_fixed"
+    },
+    {
+      "physical_group_name": "bottom_faces",
+      "property_id": 0,
+      "sub_model_part_name": "DISPLACEMENT_bottom_fixed"
+    },
+    {
+      "physical_group_name": "top_faces",
+      "condition_name": "SurfaceLoadCondition3D4N",
+      "property_id": 0,
+      "sub_model_part_name": "SurfaceLoad3D_top"
+    }
+  ]
+}
+

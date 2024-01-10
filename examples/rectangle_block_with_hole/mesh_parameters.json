@@ -1,0 +1,32 @@
+{
+  "precision": 10,
+  "sub_model_parts" : [
+    {
+      "physical_group_name" : "block",
+      "element_name" : "SmallDisplacementElement3D8N",
+      "property_id" : 0,
+      "sub_model_part_name": "Parts_block"
+    },
+    {
+      "physical_group_name" : "left",
+      "property_id" : 0,
+      "sub_model_part_name": "DISPLACEMENT_left"
+    },
+    {
+      "physical_group_name" : "right",
+      "property_id" : 0,
+      "sub_model_part_name": "DISPLACEMENT_right"
+    },
+    {
+      "physical_group_name" : "bottom",
+      "property_id" : 0,
+      "sub_model_part_name": "DISPLACEMENT_bottom"
+    },
+    {
+      "physical_group_name" : "top",
+      "property_id" : 0,
+      "sub_model_part_name": "SurfaceLoad3D_top",
+      "condition_name": "SurfaceLoadCondition3D4N"
+    }
+  ]
+}

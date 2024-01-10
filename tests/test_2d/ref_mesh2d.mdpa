@@ -1,0 +1,71 @@
+Begin ModelPartData
+//  VARIABLE_NAME value
+End ModelPartData
+Begin Properties 0
+End Properties
+Begin Nodes
+  1	 0.0000000000	 0.0000000000	 0.0000000000
+  2	 1.0000000000	 0.0000000000	 0.0000000000
+  3	 1.0000000000	 1.0000000000	 0.0000000000
+  4	 0.0000000000	 1.0000000000	 0.0000000000
+  5	 2.0000000000	 0.0000000000	 0.0000000000
+  6	 2.0000000000	 1.0000000000	 0.0000000000
+End Nodes
+Begin Elements PreStressMembraneElement3D4N // GUI group identifier: quad_elems
+  1	  0	  1	  2	  3	  4	
+  2	  0	  2	  5	  6	  3
+End Elements
+Begin Conditions SurfaceLoadCondition3D3N // GUI group identifier: tri_elems
+  1	  0	  1	  2	  4	
+  2	  0	  4	  2	  3	
+  3	  0	  2	  5	  3	
+  4	  0	  3	  5	  6	
+End Conditions
+Begin SubModelPart Parts_quad_elems // Group quad_elems
+Begin SubModelPartNodes
+1
+2
+3
+4
+5
+6
+End SubModelPartNodes
+Begin SubModelPartElements
+1
+2
+End SubModelPartElements
+Begin SubModelPartConditions
+End SubModelPartConditions
+End SubModelPart // Group quad_elems
+Begin SubModelPart DISPLACEMENT_edge // Group edges
+Begin SubModelPartNodes
+1
+2
+3
+4
+5
+6
+End SubModelPartNodes
+Begin SubModelPartElements
+End SubModelPartElements
+Begin SubModelPartConditions
+End SubModelPartConditions
+End SubModelPart // Group edges
+Begin SubModelPart SurfaceLoad3D_disc // Group tri_elems
+Begin SubModelPartNodes
+1
+2
+3
+4
+5
+6
+End SubModelPartNodes
+Begin SubModelPartElements
+End SubModelPartElements
+Begin SubModelPartConditions
+1
+2
+3
+4
+End SubModelPartConditions
+End SubModelPart // Group tri_elems

@@ -1,0 +1,94 @@
+{
+  "problem_data": {
+    "problem_name": "circular_membrane",
+    "parallel_type": "OpenMP",
+    "start_time": 0.0,
+    "end_time": 1.0,
+    "echo_level": 1
+  },
+  "solver_settings": {
+    "solver_type": "Static",
+    "echo_level": 1,
+    "model_part_name": "Structure",
+    "domain_size": 3,
+    "time_stepping": {
+      "time_step": 1.1
+    },
+    "analysis_type": "non_linear",
+    "model_import_settings": {
+      "input_type": "mdpa",
+      "input_filename": "circular_membrane"
+    },
+    "material_import_settings": {
+      "materials_filename": "StructuralMaterials.json"
+    },
+    "line_search": false,
+    "convergence_criterion": "residual_criterion",
+    "displacement_relative_tolerance": 0.000001,
+    "displacement_absolute_tolerance": 1e-6,
+    "residual_relative_tolerance": 1e-6,
+    "residual_absolute_tolerance": 1e-9,
+    "max_iteration": 200,
+    "move_mesh_flag": true,
+    "rotation_dofs": false
+  },
+  "processes": {
+    "constraints_process_list": [
+      {
+        "python_module": "assign_vector_variable_process",
+        "kratos_module": "KratosMultiphysics",
+        "Parameters": {
+          "mesh_id": 0,
+          "model_part_name": "Structure.DISPLACEMENT_edge",
+          "variable_name": "DISPLACEMENT",
+          "constrained": [
+            true,
+            true,
+            true
+          ],
+          "value": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "loads_process_list": [
+      {
+        "python_module": "assign_scalar_variable_process",
+        "kratos_module": "KratosMultiphysics",
+        "process_name": "AssignScalarVariableProcess",
+        "Parameters": {
+          "mesh_id": 0,
+          "model_part_name": "Structure.SurfaceLoad3D_disc",
+          "variable_name": "POSITIVE_FACE_PRESSURE",
+          "value": 10
+        }
+      }
+    ]
+  },
+  "output_processes": {
+    "vtk_output": [
+      {
+        "python_module": "vtk_output_process",
+        "kratos_module": "KratosMultiphysics",
+        "process_name": "VTKOutputProcess",
+        "Parameters": {
+          "model_part_name": "Structure",
+          "file_format": "ascii",
+          "output_precision": 7,
+          "output_control_type": "step",
+          "output_interval": 1,
+          "output_sub_model_parts": true,
+          "nodal_solution_step_data_variables": [
+            "DISPLACEMENT"
+          ],
+          "nodal_data_value_variables": [],
+          "element_data_value_variables": [],
+          "condition_data_value_variables": []
+        }
+      }
+    ]
+  }
+}

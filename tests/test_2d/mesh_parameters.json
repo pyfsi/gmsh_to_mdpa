@@ -1,0 +1,23 @@
+{
+  "precision": 10,
+  "sub_model_parts": [
+    {
+      "physical_group_name": "quad_elems",
+      "element_name": "PreStressMembraneElement3D4N",
+      "property_id": 0,
+      "sub_model_part_name": "Parts_quad_elems"
+    },
+    {
+      "physical_group_name": "edges",
+      "property_id": 0,
+      "sub_model_part_name": "DISPLACEMENT_edge"
+    },
+    {
+      "physical_group_name": "tri_elems",
+      "condition_name": "SurfaceLoadCondition3D3N",
+      "property_id": 0,
+      "sub_model_part_name": "SurfaceLoad3D_disc"
+    }
+  ]
+}
+

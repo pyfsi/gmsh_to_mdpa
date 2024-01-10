@@ -1,0 +1,23 @@
+{
+  "precision": 10,
+  "sub_model_parts": [
+    {
+      "physical_group_name": "disc",
+      "element_name": "PreStressMembraneElement3D3N",
+      "property_id": 0,
+      "sub_model_part_name": "Parts_disc"
+    },
+    {
+      "physical_group_name": "edge",
+      "property_id": 0,
+      "sub_model_part_name": "DISPLACEMENT_edge"
+    },
+    {
+      "physical_group_name": "disc",
+      "condition_name": "SurfaceLoadCondition3D3N",
+      "property_id": 0,
+      "sub_model_part_name": "SurfaceLoad3D_disc"
+    }
+  ]
+}
+

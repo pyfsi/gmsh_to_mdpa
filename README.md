@@ -1,2 +1,4 @@
 # gmsh_to_mdpa
-Script to convert mesh generated with Gmsh to the mdpa format.
+This python script converts gmsh (format 2.2) to kratos mesh format (mdpa).
+
+Original author: **Navaneeth Kodunthirappully Narayanan**.
